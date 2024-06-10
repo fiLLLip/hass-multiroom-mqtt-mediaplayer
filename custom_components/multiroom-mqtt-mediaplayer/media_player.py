@@ -8,7 +8,6 @@ import json
 
 from homeassistant import util
 from homeassistant.core import callback
-from homeassistant.components.mqtt.debug_info import log_messages
 
 from homeassistant.exceptions import TemplateError, NoEntitySpecifiedError
 from homeassistant.helpers.script import Script
@@ -794,7 +793,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
         topics = {}
 
         @callback
-        @log_messages(self.hass, self.entity_id)
         def power_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[POWER](msg.payload)
@@ -811,7 +809,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
 
         @callback
-        @log_messages(self.hass, self.entity_id)
         def playerstatus_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[PLAYERSTATUS](msg.payload)
@@ -828,7 +825,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
 
         @callback
-        @log_messages(self.hass, self.entity_id)
         def source_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[SOURCE](msg.payload)
@@ -845,7 +841,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
 
         @callback
-        @log_messages(self.hass, self.entity_id)
         def sourcelist_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[SOURCELIST](msg.payload)
@@ -865,7 +860,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
 
         @callback
-        @log_messages(self.hass, self.entity_id)
         def soundmode_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[SOUNDMODE](msg.payload)
@@ -882,7 +876,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
 
         @callback
-        @log_messages(self.hass, self.entity_id)
         def soundmodelist_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[SOUNDMODELIST](msg.payload)
@@ -902,7 +895,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
 
         @callback
-        @log_messages(self.hass, self.entity_id)
         def shuffle_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[SHUFFLE](msg.payload)
@@ -919,7 +911,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
 
         @callback
-        @log_messages(self.hass, self.entity_id)
         def repeat_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[REPEAT](msg.payload)
@@ -936,7 +927,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
 
         @callback
-        @log_messages(self.hass, self.entity_id)
         def volume_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[VOL](msg.payload)
@@ -960,7 +950,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
 
         @callback
-        @log_messages(self.hass, self.entity_id)
         def minvolume_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[MINVOL](msg.payload)
@@ -983,7 +972,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
 
         @callback
-        @log_messages(self.hass, self.entity_id)
         def maxvolume_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[MAXVOL](msg.payload)
@@ -1006,7 +994,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
         
         @callback
-        @log_messages(self.hass, self.entity_id)
         def mute_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[MUTE](msg.payload)
@@ -1023,7 +1010,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
 
         @callback
-        @log_messages(self.hass, self.entity_id)
         def title_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[MEDIA_TITLE](msg.payload)
@@ -1040,7 +1026,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
         
         @callback
-        @log_messages(self.hass, self.entity_id)
         def artist_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[MEDIA_ARTIST](msg.payload)
@@ -1057,7 +1042,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
         
         @callback
-        @log_messages(self.hass, self.entity_id)
         def album_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[MEDIA_ALBUM](msg.payload)
@@ -1074,7 +1058,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
 
         @callback
-        @log_messages(self.hass, self.entity_id)
         def position_received(msg):
             """Handle new received MQTT message."""
             lastUpdate = util.dt.utcnow()
@@ -1099,7 +1082,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
         
         @callback
-        @log_messages(self.hass, self.entity_id)
         def duration_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[MEDIA_DURATION](msg.payload)
@@ -1122,7 +1104,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
 
         @callback
-        @log_messages(self.hass, self.entity_id)
         def albumart_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[ALBUMART](msg.payload)
@@ -1139,7 +1120,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
 
         @callback
-        @log_messages(self.hass, self.entity_id)
         def albumart_url_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[ALBUMARTURL](msg.payload)
@@ -1156,7 +1136,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
 
         @callback
-        @log_messages(self.hass, self.entity_id)
         def multiroomclients_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[MULTIROOMCLIENTS](msg.payload)
@@ -1175,7 +1154,6 @@ class MQTTMediaPlayer(MediaPlayerEntity):
             }
 
         @callback
-        @log_messages(self.hass, self.entity_id)
         def multiroommaster_received(msg):
             """Handle new received MQTT message."""
             payload = self._templates[MULTIROOM_MASTER](msg.payload)
